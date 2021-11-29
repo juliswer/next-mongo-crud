@@ -1,6 +1,6 @@
 import {Schema, model, models} from 'mongoose';
 
-new Schema({
+const taskSchema = new Schema({
     title: {
         type: String,
         required: [true, 'Title is required'],
@@ -13,5 +13,10 @@ new Schema({
         required: true,
         trim: true,
         maxlength: [200, 'Description must be less than 200 characters']
-    }
+    },
+}, {
+    timestamps: true,
+    versionKey: false
 })
+
+export default model('Task', taskSchema)
