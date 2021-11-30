@@ -18,7 +18,13 @@ export default async (req, res) => {
         case "PUT":
 
         case "DELETE":
-
+            try {
+                const deletedTask = await Task.findByIdAndDelete(id);
+                if (!deletedTask) return res.status(404).json({msg: "Task not found"})
+                return res.status(204).json();
+            } catch (error) {
+                return res.status(400).json({msg: error.message})
+            }
         default:
             return res.status(400).json({masg: "This method is not supported"});
     }
