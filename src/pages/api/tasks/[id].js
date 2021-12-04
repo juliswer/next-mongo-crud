@@ -34,6 +34,6 @@ export default async (req, res) => {
                 return res.status(400).json({msg: error.message})
             }
         default:
-            return res.status(400).json({masg: "This method is not supported"});
+            return res.status(400).json({msg: "This method is not supported"});
     }
 }
