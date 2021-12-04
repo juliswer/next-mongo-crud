@@ -1,4 +1,5 @@
-export default function HomePage() {
+export default function HomePage({tasks}) {
+  console.log(tasks);
   console.log('frontend');
   return (
     <div>
@@ -9,9 +10,12 @@ export default function HomePage() {
 
 export const getServerSideProps = async (ctx) => {
 
-  console.log('backend');
+  const res = await fetch('http://localhost:3000/api/tasks')
+  const tasks = await res.json()
 
   return {
-    props: {}
+    props: {
+      tasks
+    }
   }
 }
