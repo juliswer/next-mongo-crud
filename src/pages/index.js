@@ -1,10 +1,23 @@
+import {Button, Card, Container, Grid} from 'semantic-ui-react';
+
 export default function HomePage({tasks}) {
-  console.log(tasks);
-  console.log('frontend');
+  
+
+  // Render a list of tasks
   return (
-    <div>
-      <h1>Hello world</h1>
-    </div>
+    <Container>
+      <Card.Group itemsPerRow={4}>
+        {
+          tasks.map(task => (
+            <Card key={task._id}>
+              <Card.Content>
+                <Card.Header>{task.title}</Card.Header>
+              </Card.Content>
+            </Card> 
+          ))
+        }
+      </Card.Group>
+    </Container>
   )
 }
 
