@@ -1,4 +1,5 @@
 export default function HomePage() {
+  console.log('frontend');
   return (
     <div>
       <h1>Hello world</h1>
@@ -6,12 +7,10 @@ export default function HomePage() {
   )
 }
 
-export async function getServerSideProps(){
-  
-  const res = await fetch('http://localhost:3000/api/tasks')
-  const tasks = await res.json()
-  console.log(tasks);
-  
+export const getServerSideProps = async (ctx) => {
+
+  console.log('backend');
+
   return {
     props: {}
   }
