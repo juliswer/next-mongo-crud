@@ -12,6 +12,11 @@ export default function HomePage({tasks}) {
             <Card key={task._id}>
               <Card.Content>
                 <Card.Header>{task.title}</Card.Header>
+                <p>{task.description}</p>
+              </Card.Content>
+              <Card.Content extra>
+                <Button primary>View</Button>
+                <Button primary>Edit</Button>
               </Card.Content>
             </Card> 
           ))
