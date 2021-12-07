@@ -1,4 +1,7 @@
-export default function TaskDetail({task}) {
+export default function TaskDetail({task, error}) {
+
+    if(error && error.statusCode) return 
+
     return <div> {JSON.stringify(task)} </div>;
 }
 
