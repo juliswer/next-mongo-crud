@@ -1,13 +1,14 @@
 import {useState} from 'react';
 import Error from "next/error";
-import { Grid, Button, Confirm } from "semantic-ui-react";
+import { Grid, Button, Confirm, Loader } from "semantic-ui-react";
 import {useRouter} from 'next/router';
 
 export default function TaskDetail({ task, error }) {
 
     const [confirm, setConfirm] = useState(false)
     const {query, push} = useRouter()
-    
+
+    const [isDeleting, setIsDeleting] = useState(false)
     const open = () => setConfirm(true)
     const close = () => setConfirm(false)
 
@@ -23,6 +24,7 @@ export default function TaskDetail({ task, error }) {
     }
     
     const handleDelete = () => {
+        setIsDeleting(true)
         deleteTask();
         close()
         push("/")
@@ -46,6 +48,7 @@ export default function TaskDetail({ task, error }) {
             <Button
               color="red"
               onClick={open}
+                loading={isDeleting}
             >
               Delete
             </Button>
@@ -53,6 +56,8 @@ export default function TaskDetail({ task, error }) {
         </Grid.Column>
       </Grid.Row>
       <Confirm 
+        header="Please Confirm Task"
+        content="Are you sure you want to delete this task?"
         open={confirm}
         onConfirm={handleDelete}
         onCancel={close}

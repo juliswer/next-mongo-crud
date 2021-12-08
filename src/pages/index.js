@@ -11,6 +11,9 @@ export default function HomePage({tasks}) {
         <Grid.Column textAlign="center">
           <h1>There are not tasks yet</h1>
           <img src="https://cdn.iconscout.com/icon/free/png-256/data-not-found-1965034-1662569.png" alt="Not tasks yet" />
+          <Button primary onClick={() => router.push("/tasks/new")}>
+            Create Task
+          </Button>
         </Grid.Column>
       </Grid.Row>
     </Grid>
