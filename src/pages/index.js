@@ -6,9 +6,9 @@ export default function HomePage({tasks}) {
   const router = useRouter();
 
   if (tasks.length == 0) return (
-    <Grid>
+    <Grid centered verticalAlign="middle" columns="1" style={{height: '80vh'}}>
       <Grid.Row>
-        <Grid.Column>
+        <Grid.Column textAlign="center">
           <h1>There are not tasks yet</h1>
           <img src="https://cdn.iconscout.com/icon/free/png-256/data-not-found-1965034-1662569.png" alt="Not tasks yet" />
         </Grid.Column>
